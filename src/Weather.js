@@ -64,7 +64,7 @@ export default function Weather() {
       <div className="coded">
         <p>
           <a
-            href="https://github.com/emmaleecamargo/shecodes-challenge"
+            href="https://github.com/emmaleecamargo/weather-react-app"
             className="github"
           >
             Open-source code
