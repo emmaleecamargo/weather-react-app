@@ -1,38 +1,70 @@
 .App {
+  font-family: sans-serif;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: rgba(25, 69, 137, 0.3);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  color: green;
+  text-align: center;
+  font-family: "Didact Gothic", sans-serif;
+  font-weight: bold;
+  padding: 2%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.searching {
+  text-align: center;
+  margin: 10px auto;
+  display: block;
+  padding: 0.5%;
+}
+.btn {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+.card {
+  text-align: center;
+  margin: 0 auto;
+  float: none;
+}
+h2.time {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 20px;
+  padding: 1%;
+}
+h2.forecast {
+  color: green;
+  text-align: center;
+  font-family: "Didact Gothic", sans-serif;
+  padding: 1%;
+  font-weight: bold;
+}
+.row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0 auto;
 }
-
-.App-link {
-  color: #61dafb;
+#main-card-title {
+  font-size: 25px;
+  font-weight: 650;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-title {
+  color: #194589;
+}
+ul,
+p {
+  font-weight: 600;
+}
+.forecast-temp-min,
+p,
+#main-weather-description {
+  opacity: 0.7;
+}
+.coded {
+  text-align: center;
+}
+.github {
+  text-decoration: none;
 }

@@ -1,59 +1,77 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+import "./App.css";
 
-export default function WeatherSearch() {
-  const [city, setCity] = useState("");
-  const [loaded, setLoaded] = useState(false);
-  const [weather, setWeather] = useState({});
-
-  function showTemperature(response) {
-    setLoaded(true);
-    setWeather({
-      temperature: response.data.main.temp,
-      wind: response.data.wind.speed,
-      humidity: response.data.main.humidity,
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-      description: response.data.weather[0].description,
-    });
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3a94f3778290bfeee61278505dbbe51d&units=metric`;
-    axios.get(url).then(showTemperature);
-  }
-
-  function updateCity(event) {
-    setCity(event.target.value);
-  }
-
-  let form = (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="search"
-        placeholder="Search for a city"
-        onChange={updateCity}
-      />
-      <input type="submit" value="Search" />
-    </form>
-  );
-
-  if (loaded) {
-    return (
-      <div>
-        {form}
+export default function Weather() {
+  return (
+    <div className="Weather">
+      <h1>WorldWide Weather</h1>
+      <form>
+        <div className="row">
+          <div>
+            <input
+              className="searching"
+              id="city-input"
+              type="search"
+              placeholder="Search For Your City"
+              autocomplete="off"
+            />
+          </div>
+          <div>
+            <input type="submit" value="🔎" className="btn btn-primary" />
+          </div>
+        </div>
+      </form>
+      <h2 id="date" className="time">
+        Monday June 27 04:15 PM
+      </h2>
+      <div className="card">
+        <div>
+          <h5 className="card-title" id="main-card-title">
+            Lisbon
+          </h5>
+          <p className="card-text" id="main-card-description">
+            Humidity: 40%
+            <br />
+            Wind: 10 km/h
+          </p>
+        </div>
         <ul>
-          <li>Temperature: {Math.round(weather.temperature)}°C</li>
-          <li>Description: {weather.description}</li>
-          <li>Humidity: {weather.humidity}%</li>
-          <li>Wind: {weather.wind}km/h</li>
+          <li>20℃</li>
+          <li id="main-weather-description"></li>
           <li>
-            <img src={weather.icon} alt={weather.description} />
+            <img
+              src="http://openweathermap.org/img/wn/02n@2x.png"
+              alt="Clear"
+            />
           </li>
         </ul>
       </div>
-    );
-  } else {
-    return form;
-  }
+      <h2 className="forecast">5-Day Forecast</h2>
+      <div>
+        <div className="card">
+          <div>
+            <h5 className="card-title">Monday</h5>
+          </div>
+          <ul>
+            <li>22℃</li>
+            <li>15℃</li>
+            <li>
+              <img src="http://openweathermap.org/img/wn/02n@2x.png" alt="" />
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="coded">
+        <p>
+          <a
+            href="https://github.com/emmaleecamargo/shecodes-challenge"
+            className="github"
+          >
+            Open-source code
+          </a>
+          by Emmalee Camargo
+        </p>
+      </div>
+    </div>
+  );
 }
